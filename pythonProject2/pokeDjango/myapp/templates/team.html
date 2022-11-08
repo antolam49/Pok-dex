@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team</title>
+</head>
+<body>
+    {% if not listPoke %}
+    <p>pas de pokemon dans la team</p>
+    {% else %}
+        {{listPoke}}
+        {% for poke in listPoke %}
+        <div class="col-3 p-4">
+          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon/{{poke.id}}">
+            <img class="card-img-top" src={{poke.img}}>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title text-center"><a href="pokemon/{{poke.id}}">{{poke.name}}</a></h5>
+            <h5 class="card-title text-center">Numero de pokedex: {{poke.id}}</h5>
+            {% for ability in poke.abilities %}
+              <h5 class="card-title text-center">
+                <a href="ability/{{ability.id}}">{{ability.name}}</a>
+              </h5>
+            {% endfor %}
+            <a href="">Supprimer</a>
+          </div>
+
+        </div>
+      {% endfor %}
+    {% endif %}
+
+</body>
+</html>

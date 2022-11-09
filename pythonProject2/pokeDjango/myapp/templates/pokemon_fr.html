@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{poke_fr.name}}</title>
+</head>
+<body>
+<div class="grid text-center">
+  <div class="g-col-4"></div>
+  <div class="g-col-4">
+    <h1>{{poke_fr.name}}</h1>
+    <h4>Numero de pokedex : {{poke_fr.id}}</h4>
+    <img width="400" height="400" src={{poke_fr.img}}>
+  </div>
+  <div class="g-col-4"></div>
+</div>
+    <div class="container" style="padding-top: 80px">
+      <div class="row py-5">
+        <h2>Types: </h2>
+      {% for type in poke_fr.types %}
+           <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{type.image}}" alt="">
+              <div class="card-body">
+                <p class="card-title text-center">{{type.name}}</p>
+              </div>
+           </div>
+    {% endfor %}
+
+      </div>
+        <h2>Stats: </h2>
+      <ul>
+          <li>HP: {{poke_fr.hp}}</li>
+          <li>Attaque: {{poke_fr.attaque}}</li>
+          <li>Defense: {{poke_fr.defense}}</li>
+          <li>Attaque Spe: {{poke_fr.attaque_spe}}</li>
+          <li>Defense Spe: {{poke_fr.defense_spe}}</li>
+          <li>Speed: {{poke_fr.speed}}</li>
+      </ul>
+      <div class="container" style="padding-top: 80px">
+          <div class="row py-5">
+          <h2>Faiblesses: </h2>
+          {% for faiblesse in poke_fr.faiblesses %}
+              <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="#">
+                      {% load static %}
+                    <img class="card-img-top" src={{faiblesse.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{faiblesse.name}}</h5>
+                    <h5 class="card-title text-center">{{faiblesse.dmg_multiplier}}</h5>
+                    <h5 class="card-title text-center">{{faiblesse.dmg_relation}}</h5>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+      </div>
+        {% for prePoke in poke_fr.prePoke %}
+        <div class="container" style="padding-top: 80px">
+          <div class="row py-5">
+            <h2>Pré évolution: </h2>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{prePoke.id}}">
+                    <img class="card-img-top" src={{prePoke.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{prePoke.name}}</h5>
+                    </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      {% for nextPoke in poke_fr.nextPoke %}
+      <div class="container" style="padding-top: 80px">
+          <div class="row py-5">
+            <h2>Future évolution: </h2>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{nextPoke.id}}">
+                    <img class="card-img-top" src={{nextPoke.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{nextPoke.name}}</h5>
+                    </div>
+            </div>
+          </div>
+      </div>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

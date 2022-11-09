@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 import requests
 from .forms import SearchForm
+from pprint import pprint
 
 import json
 
@@ -42,19 +43,51 @@ def pokemon(request, id: int):
     context = {'poke': poke}
     return render(request, 'pokemon.html', context)
 
+def pokemon_fr(request, id: int):
+    infoPoke = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(id) + '/').json()
+    poke_fr = models.Pokemon_fr(infoPoke['id'], infoPoke['name'], infoPoke['sprite'], infoPoke['stats']['HP'],
+                                infoPoke['stats']['attack'], infoPoke['stats']['defense'], infoPoke['stats']['special_attack'],
+                                infoPoke['stats']['special_defense'], infoPoke['stats']['speed'])
+
+    infoType = requests.get('https://pokebuildapi.fr/api/v1/types').json()
+
+
+
+    if infoPoke['apiEvolutions'] != []:
+        infoNextPoke = requests.get(
+            'https://pokebuildapi.fr/api/v1/pokemon/' + str(infoPoke['apiEvolutions'][0]['pokedexId']) + '/').json()
+        poke_fr.addNextEvo(
+            models.nextEvo(infoPoke['apiEvolutions'][0]['pokedexId'], infoPoke['apiEvolutions'][0]['name'], infoNextPoke['image']))
+    if infoPoke['apiPreEvolution'] != "none":
+        infoPrePoke = requests.get(
+            'https://pokebuildapi.fr/api/v1/pokemon/' + str(infoPoke['apiPreEvolution']['pokedexIdd']) + '/').json()
+        poke_fr.addPreEvo(
+            models.preEvo(infoPoke['apiPreEvolution']['pokedexIdd'], infoPoke['apiPreEvolution']['name'], infoPrePoke['image']))
+
+    for x in range(0, len(infoPoke['apiTypes'])):
+        poke_fr.addType(
+            models.Type(str(infoPoke['apiTypes'][x]['name']), str(infoPoke['apiTypes'][x]['image']))
+        )
+
+    for y in range(0, len(infoPoke['apiResistances'])):
+        poke_fr.addFaiblesse(
+            models.Faiblesse(infoPoke['apiResistances'][y]['name'],
+                           infoPoke['apiResistances'][y]['damage_multiplier'], infoPoke['apiResistances'][y]['damage_relation'], infoType[y]['image'])
+        )
+
+    context = {'poke_fr': poke_fr}
+    return render(request, 'pokemon_fr.html', context)
+
+
+
 def setListPokemon (request, b: bool):
-    if(b == true):
+    if(b == 1):
         setList_fr()
     else:
         setList()
 
 
-def pokemon_fr(request, id: int):
-    infoPoke = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(id) + '/').json()
-    poke = models.Pokemon_fr(infoPoke['id'], infoPoke['name'], infoPoke['sprite'], infoPoke['apiTypes'])
 
-    context = {'poke_fr': poke_fr}
-    return render(request, 'pokemon.html', context)
 
 
 def name(request):
@@ -90,7 +123,7 @@ def index_fr(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             infoPoke = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(form.data['your_name'])).json()
-            poke_fr = models.Pokemon_fr(infoPoke['id'], infoPoke['name'], infoPoke['image'])
+            poke_fr = models.Pokemon(infoPoke['id'], infoPoke['name'], infoPoke['image'])
             return pokemon(request, poke_fr.id)
 
     else:
@@ -113,7 +146,12 @@ def ability(request, id: int):
     context = {'ability': abi}
     return render(request, 'ability.html', context)
 
+def type(request):
+    infoType = requests.get('https://pokebuildapi.fr/api/v1/types').json()
+    typ = models.Type(infoType['name'], infoType['image'])
 
+    context = {'type': typ}
+    return render(request, 'type.html', context)
 def setList():
     finalList = []
     ListPokemon = requests.get('https://pokeapi.co/api/v2/pokemon?limit=151').json()['results']
@@ -136,13 +174,15 @@ def setList_fr():
     for x in range(0, len(ListPokemon)):
         #pokemonInfo = requests.get(ListPokemon[x])
         finalList_fr.append(
-            models.Pokemon_fr(ListPokemon[x]['id'], ListPokemon[x]['name'], ListPokemon[x]['sprite']))
+            models.Pokemon(ListPokemon[x]['id'], ListPokemon[x]['name'], ListPokemon[x]['sprite']))
     return finalList_fr
 
 
 def getAbilityId(url):
     return requests.get(url).json()['id']
 
+def pic(url):
+    return pic/url.webp
 
 def setTeam(request, id):
     pokemonTeam.append(id)

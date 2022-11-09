@@ -46,18 +46,18 @@
       <div class="row py-5">
         {% for poke_fr in listPoke_fr %}
         <div class="col-3 p-4">
-          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon/{{poke_fr.id}}">
+          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{poke_fr.id}}">
             <img class="card-img-top" src={{poke_fr.img}}>
           </a>
           <div class="card-body">
-            <h5 class="card-title text-center"><a href="pokemon/{{poke_fr.id}}">{{poke_fr.name}}</a></h5>
+            <h5 class="card-title text-center"><a href="pokemon_fr/{{poke_fr.id}}">{{poke_fr.name}}</a></h5>
             <h5 class="card-title text-center">Numero de pokedex: {{poke_fr.id}}</h5>
             {% for type in poke_fr.type %}
               <h5 class="card-title text-center">
                 <a href="ability/{{ability.id}}">{{poke_fr.type}}</a>
               </h5>
             {% endfor %}
-            <a href="setTeam/{{poke.id}}">Ajouter à l'equipe</a>
+
           </div>
 
         </div>

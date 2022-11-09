@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('pokemon/<int:id>/', views.pokemon, name='pokemon'),
+    path('pokemon_fr/<int:id>/', views.pokemon_fr, name='pokemon_fr'),
     path('ability/<int:id>/', views.ability, name='ability'),
     path('name/', views.name, name='name'),
     path('team/', views.team, name='team'),

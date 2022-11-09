@@ -33,8 +33,10 @@ class Pokemon_fr(models.Model):
     speed: int
     nextPoke: list
     prePoke: list
+    preId: int
+    nextId: int
 
-    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,):
+    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,preId, nextId):
         self.id = id
         self.name = name
         self.img = img
@@ -48,6 +50,8 @@ class Pokemon_fr(models.Model):
         self.types = []
         self.nextPoke = []
         self.prePoke = []
+        self.preId = preId
+        self.nextId = nextId
 
     def addNextEvo(self, nextEvo):
         self.nextPoke.append(nextEvo)

@@ -21,6 +21,8 @@
     <div class="g-col-4">
         <h1>{{poke.name}}</h1>
     <h2>Numero de pokedex : {{poke.id}}</h2>
+        <button type="button" class="btn btn-secondary"><i class="bi bi-arrow-right"></i></button>
+        <button type="button" class="btn btn-secondary"><i class="bi bi-arrow-left"></i></button>
     <img width="250" height="250" src={{poke.img}}>
         <h2>Abilities:</h2>
     {% for ability in poke.abilities %}

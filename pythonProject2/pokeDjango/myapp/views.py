@@ -45,9 +45,11 @@ def pokemon(request, id: int):
 
 def pokemon_fr(request, id: int):
     infoPoke = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(id) + '/').json()
+    preId = infoPoke['id'] - 1
+    nextId = infoPoke['id'] + 1
     poke_fr = models.Pokemon_fr(infoPoke['id'], infoPoke['name'], infoPoke['sprite'], infoPoke['stats']['HP'],
                                 infoPoke['stats']['attack'], infoPoke['stats']['defense'], infoPoke['stats']['special_attack'],
-                                infoPoke['stats']['special_defense'], infoPoke['stats']['speed'])
+                                infoPoke['stats']['special_defense'], infoPoke['stats']['speed'], preId, nextId)
 
     infoType = requests.get('https://pokebuildapi.fr/api/v1/types').json()
 

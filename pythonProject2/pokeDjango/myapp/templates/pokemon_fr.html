@@ -13,12 +13,32 @@
     <title>{{poke_fr.name}}</title>
 </head>
 <body>
+<style>
+    button.btn.btn-secondary.a{
+        margin-right: 50vh
+    }
+    button.btn.btn-secondary.b{
+        margin-left: 50vh
+    }
+</style>
+
 <div class="grid text-center">
   <div class="g-col-4"></div>
   <div class="g-col-4">
     <h1>{{poke_fr.name}}</h1>
     <h4>Numero de pokedex : {{poke_fr.id}}</h4>
-    <img width="400" height="400" src={{poke_fr.img}}>
+      {% if poke_fr.preId > 0 %}
+      <a href="../../pokemon_fr/{{poke_fr.preId}}"><button type="button" class="btn btn-secondary a"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg></button></a>
+      {% endif %}
+
+      <img width="400" height="400" src={{poke_fr.img}}>
+      {% if poke_fr.nextId < 899 %}
+      <a href="../../pokemon_fr/{{poke_fr.nextId}}"><button type="button" class="btn btn-secondary b"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+       </svg></button></a>
+      {% endif %}
   </div>
   <div class="g-col-4"></div>
 </div>

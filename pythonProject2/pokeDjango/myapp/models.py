@@ -19,6 +19,25 @@ class Pokemon(models.Model):
     def addAbility(self, ability):
         self.abilities.append(ability)
 
+class PokemonS(models.Model):
+    id: int
+    name: string
+    img: string
+    abilities: list
+    random: int
+    shiny: string
+
+    def __init__(self, id, name, img, random, shiny):
+        self.id = id
+        self.name = name
+        self.img = img
+        self.abilities = []
+        self.random = random
+        self.shiny = shiny
+
+    def addAbility(self, ability):
+        self.abilities.append(ability)
+
 class Pokemon_fr(models.Model):
     id: int
     name: string

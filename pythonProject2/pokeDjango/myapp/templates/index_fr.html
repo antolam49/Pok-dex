@@ -49,9 +49,15 @@
       <div class="row py-5">
         {% for poke_fr in listPoke_fr %}
         <div class="col-3 p-4">
-          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{poke_fr.id}}">
-            <img class="card-img-top" src={{poke_fr.img}}>
-          </a>
+          {% if poke_fr.random < 500 %}
+            <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{poke_fr.id}}">
+              <img class="card-img-top" src={{poke_fr.img}}>
+            </a>
+          {% else %}
+            <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{poke_fr.id}}">
+              <img class="card-img-top" src={{poke_fr.shiny}}>
+            </a>
+          {% endif %}
           <div class="card-body">
             <h5 class="card-title text-center"><a href="pokemon_fr/{{poke_fr.id}}">{{poke_fr.name}}</a></h5>
             <h5 class="card-title text-center">Numero de pokedex: {{poke_fr.id}}</h5>

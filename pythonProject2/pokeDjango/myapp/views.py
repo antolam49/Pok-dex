@@ -179,9 +179,11 @@ def setList_fr():
     ListPokemon = requests.get('https://pokebuildapi.fr/api/v1/pokemon').json()
 
     for x in range(0, len(ListPokemon)):
+        i = random.randint(1, 1000)
+        randomPoke = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(ListPokemon[x]['id']) + '/').json()
         #pokemonInfo = requests.get(ListPokemon[x])
         finalList_fr.append(
-            models.Pokemon(ListPokemon[x]['id'], ListPokemon[x]['name'], ListPokemon[x]['sprite']))
+            models.PokemonS(ListPokemon[x]['id'], ListPokemon[x]['name'], ListPokemon[x]['sprite'], i, randomPoke['sprites']['front_shiny']))
     return finalList_fr
 
 

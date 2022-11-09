@@ -60,7 +60,7 @@
           {% endif %}
           <div class="card-body">
             <h5 class="card-title text-center"><a href="pokemon_fr/{{poke_fr.id}}">{{poke_fr.name}}</a></h5>
-            <h5 class="card-title text-center">Numero de pokedex: {{poke_fr.id}}</h5>
+            <h6 class="card-title text-center">Numero de pokedex: {{poke_fr.id}}</h6>
             {% for type in poke_fr.type %}
               <h5 class="card-title text-center">
                 <a href="ability/{{ability.id}}">{{poke_fr.type}}</a>

@@ -10,5 +10,6 @@ urlpatterns = [
     path('setTeam/<int:id>', views.setTeam, name='setTeam'),
     path('', views.index, name='index'),
     path('fr', views.index_fr, name='index_fr'),
-    path('en', views.index, name='index')
+    path('en', views.index, name='index'),
+    path('quiz', views.quiz, name='quiz')
 ]

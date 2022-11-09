@@ -15,12 +15,34 @@
 <body>
 <style>
     button.btn.btn-secondary.a{
-        margin-right: 50vh
+        margin-right: 10vh
     }
     button.btn.btn-secondary.b{
-        margin-left: 50vh
+        margin-left: 10vh
     }
 </style>
+    <h1>Le pokedex !</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../fr">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://pokebuildapi.fr/api/v1">Api <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="en">English</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../quiz">Qui suis-je ?</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
 
 <div class="grid text-center">
   <div class="g-col-4"></div>
@@ -32,8 +54,10 @@
   <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
       </svg></button></a>
       {% endif %}
-
-      <img width="400" height="400" src={{poke_fr.img}}>
+      <img width="300" height="300" src={{poke_fr.img}}>
+      <img width="300" height="300" src={{poke_fr.back}}>
+      <img width="300" height="300" src={{poke_fr.shiny}}>
+      <img width="300" height="300" src={{poke_fr.back_shiny}}>
       {% if poke_fr.nextId < 899 %}
       <a href="../../pokemon_fr/{{poke_fr.nextId}}"><button type="button" class="btn btn-secondary b"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -94,6 +118,14 @@
                     <h5 class="card-title text-center">{{prePoke.name}}</h5>
                     </div>
             </div>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{prePoke.id}}">
+                    <img class="card-img-top" src={{prePoke.shiny}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Shiny's {{prePoke.name}}</h5>
+                    </div>
+            </div>
           </div>
         </div>
         {% endfor %}
@@ -108,7 +140,15 @@
                   </a>
                   <div class="card-body">
                     <h5 class="card-title text-center">{{nextPoke.name}}</h5>
-                    </div>
+                  </div>
+            </div>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{nextPoke.id}}">
+                    <img class="card-img-top" src={{nextPoke.shiny}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Shiny's {{nextPoke.name}}</h5>
+                  </div>
             </div>
           </div>
       </div>

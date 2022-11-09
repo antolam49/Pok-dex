@@ -35,8 +35,11 @@ class Pokemon_fr(models.Model):
     prePoke: list
     preId: int
     nextId: int
+    shiny: string
+    back_shiny: string
+    back: string
 
-    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,preId, nextId):
+    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,preId, nextId, shiny, back_shiny, back):
         self.id = id
         self.name = name
         self.img = img
@@ -52,6 +55,9 @@ class Pokemon_fr(models.Model):
         self.prePoke = []
         self.preId = preId
         self.nextId = nextId
+        self.shiny = shiny
+        self.back_shiny = back_shiny
+        self.back = back
 
     def addNextEvo(self, nextEvo):
         self.nextPoke.append(nextEvo)
@@ -79,19 +85,23 @@ class nextEvo(models.Model):
     id: int
     name: string
     image: string
-    def __init__(self, id, name, image):
+    shiny: string
+    def __init__(self, id, name, image, shiny):
         self.id = id
         self.name = name
         self.image = image
+        self.shiny = shiny
 
 class preEvo(models.Model):
     id: int
     name: string
     image: string
-    def __init__(self, id, name, image):
+    shiny: string
+    def __init__(self, id, name, image, shiny):
         self.id = id
         self.name = name
         self.image = image
+        self.shiny = shiny
 
 class Ability(models.Model):
     id: int

@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39f17b70-3c22-4bf5-b4a0-0c94ef8bb264" name="Changes" comment="Ajout Fr &#10;Réglage page poké">
+    <list default="true" id="39f17b70-3c22-4bf5-b4a0-0c94ef8bb264" name="Changes" comment="Ajout flèche directrice">
+      <change afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/quiz.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index_fr.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index_fr.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon_fr.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon_fr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,6 +37,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -37,6 +48,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\antol\PycharmProjects\Pokedex\pythonProject2\pokeDjango\myapp\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\antol\PycharmProjects\Pokedex\pythonProject2\pokeDjango\myapp\templates" />
     </key>
   </component>
@@ -50,7 +64,7 @@
       <updated>1667898872000</updated>
       <workItem from="1667898878882" duration="139000" />
       <workItem from="1667899023733" duration="424000" />
-      <workItem from="1667982850939" duration="20682000" />
+      <workItem from="1667982850939" duration="25330000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <created>1667899294018</created>
@@ -73,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668004538135</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout flèche directrice">
+      <created>1668006946602</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668006946602</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +115,7 @@
     <MESSAGE value="Start" />
     <MESSAGE value="Start #3" />
     <MESSAGE value="Ajout Fr &#10;Réglage page poké" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout Fr &#10;Réglage page poké" />
+    <MESSAGE value="Ajout flèche directrice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout flèche directrice" />
   </component>
 </project>

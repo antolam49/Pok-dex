@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39f17b70-3c22-4bf5-b4a0-0c94ef8bb264" name="Changes" comment="Ajout shiny aléatoire main page">
-      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/db.sqlite3" afterDir="false" />
+    <list default="true" id="39f17b70-3c22-4bf5-b4a0-0c94ef8bb264" name="Changes" comment="Amélioration shiny aléatoire">
+      <change afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/function.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index_fr.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/index_fr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon_fr.html" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/templates/pokemon_fr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonProject2/pokeDjango/myapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -29,17 +36,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/antol/PycharmProjects/Pokedex/pythonProject2/pokeDjango/myapp/templates",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/antol/PycharmProjects/Pokedex/pythonProject2/pokeDjango/myapp/templates&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\antol\PycharmProjects\Pokedex\pythonProject2\pokeDjango\myapp\templates" />
@@ -58,7 +65,9 @@
       <updated>1667898872000</updated>
       <workItem from="1667898878882" duration="139000" />
       <workItem from="1667899023733" duration="424000" />
-      <workItem from="1667982850939" duration="26789000" />
+      <workItem from="1667982850939" duration="27104000" />
+      <workItem from="1668024189825" duration="3939000" />
+      <workItem from="1668064062041" duration="11351000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <created>1667899294018</created>
@@ -102,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668012449398</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Amélioration shiny aléatoire">
+      <created>1668013102131</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013102132</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +142,7 @@
     <MESSAGE value="Ajout flèche directrice" />
     <MESSAGE value="Ajout Qui suis-je ?" />
     <MESSAGE value="Ajout shiny aléatoire main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout shiny aléatoire main page" />
+    <MESSAGE value="Amélioration shiny aléatoire" />
+    <option name="LAST_COMMIT_MESSAGE" value="Amélioration shiny aléatoire" />
   </component>
 </project>

@@ -11,15 +11,80 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{poke_fr.name}}</title>
+    <script src="function.js" defer></script>
+
 </head>
-<body>
+<body onload="myFunction()">
+<script>
+    function myFunction(){
+        document.getElementById('HP').style.width = '{{ poke_fr.statHp }}%',
+        document.getElementById('attack').style.width = '{{ poke_fr.statAttack }}%',
+        document.getElementById('defense').style.width = '{{ poke_fr.statDefense }}%',
+        document.getElementById('attack_spe').style.width = '{{ poke_fr.statAttackSpe }}%',
+        document.getElementById('defense_spe').style.width = '{{ poke_fr.statDefenseSpe }}%',
+        document.getElementById('speed').style.width = '{{ poke_fr.statSpeed }}%'}
+</script>
+
 <style>
+p{
+    margin-bottom: 0;
+}
+.container.faib{
+    margin-top: -10vh;
+}
     button.btn.btn-secondary.a{
         margin-right: 10vh
     }
     button.btn.btn-secondary.b{
         margin-left: 10vh
     }
+    :root {
+  --success: #00b894;
+  --progress: #e17055;
+}
+.col-3 {
+    background-color: #AB3838;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-bottom: 2vh;
+    margin-left: 8vh;
+    border-bottom: solid;
+    border-left: solid;
+    border-top: solid;
+    border-right: solid;
+    border-radius: 5px;
+}
+.progressbar-wrapper {
+  background-color: #632B2B;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+    margin-bottom: 1vh;
+}
+
+.progressbar {
+  background-color: #F3D9D9;
+  color: white;
+  padding: 10px;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.card.type{
+    margin-top: 5vh;
+    background-color: #AB3838;
+    border-bottom: solid;
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+}
+
+.container.stats{
+    background-color: #AB3838;
+    height: 58vh;
+    border-radius: 5px;
+}
 </style>
     <h1>Le pokedex !</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,7 +135,7 @@
       <div class="row py-5">
         <h2>Types: </h2>
       {% for type in poke_fr.types %}
-           <div class="card" style="width: 18rem;">
+           <div class="card type" style="width: 18rem;">
               <img class="card-img-top" src="{{type.image}}" alt="">
               <div class="card-body">
                 <p class="card-title text-center">{{type.name}}</p>
@@ -81,16 +146,39 @@
       </div>
         <h2>Stats: </h2>
       <ul>
-          <li>HP: {{poke_fr.hp}}</li>
-          <li>Attaque: {{poke_fr.attaque}}</li>
-          <li>Defense: {{poke_fr.defense}}</li>
-          <li>Attaque Spe: {{poke_fr.attaque_spe}}</li>
-          <li>Defense Spe: {{poke_fr.defense_spe}}</li>
-          <li>Speed: {{poke_fr.speed}}</li>
+           <div class="container stats">
+               <br>
+               <p>HP: </p>
+               <div class="progressbar-wrapper">
+                  <div id="HP" title="" class="progressbar HP">{{poke_fr.hp}}</div>
+               </div>
+
+               <p>Attaque: </p>
+               <div class="progressbar-wrapper">
+                  <div id="attack" title="" class="progressbar attack">{{poke_fr.attaque}}</div>
+               </div>
+               <p>Defense: </p>
+                 <div class="progressbar-wrapper">
+                  <div id="defense" title="" class="progressbar defense">{{poke_fr.defense}}</div>
+               </div>
+               <p>Attaque Spe: </p>
+                 <div class="progressbar-wrapper">
+                  <div id="attack_spe" title="" class="progressbar attack_spe">{{poke_fr.attaque_spe}}</div>
+               </div>
+               <p>Defense Spe: </p>
+               <div class="progressbar-wrapper">
+                  <div id="defense_spe" title="" class="progressbar defense_spe">{{poke_fr.defense_spe}}</div>
+               </div>
+               <p>Vitesse: </p>
+               <div class="progressbar-wrapper">
+                  <div id="speed" title="" class="progressbar speed">{{poke_fr.speed}}</div>
+               </div>
+            </div>
       </ul>
-      <div class="container" style="padding-top: 80px">
+        <h2 class="faib">Faiblesses: </h2>
+      <div class="container faib" style="padding-top: 80px">
           <div class="row py-5">
-          <h2>Faiblesses: </h2>
+
           {% for faiblesse in poke_fr.faiblesses %}
               <div class="col-3 p-4">
                   <a class="card text-decoration-none" style="max-width: 18rem;" href="#">

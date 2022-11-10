@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Type</title>
+</head>
+<body onload="myFunction()">
+<script>
+  function myFunction(){
+ document.getElementById('Eau').style.backgroundColor = "#5CB2DE",
+ document.getElementById('Feu').style.backgroundColor = "#FF9631",
+ document.getElementById('Ténèbres').style.backgroundColor = "#58596B",
+ document.getElementById('Fée').style.backgroundColor = "#F38CD6",
+ document.getElementById('Dragon').style.backgroundColor = "#1D6BBC",
+ document.getElementById('Électrik').style.backgroundColor = "#FFCE38",
+ document.getElementById('Normal').style.backgroundColor = "#98978F",
+ document.getElementById('Insecte').style.backgroundColor = "#97D300",
+ document.getElementById('Plante').style.backgroundColor = "#2E9F40",
+ document.getElementById('Psy').style.backgroundColor = "#FE8D7A",
+ document.getElementById('Glace').style.backgroundColor = "#6DD5CB",
+ document.getElementById('Acier').style.backgroundColor = "#2B7C91",
+ document.getElementById('Spectre').style.backgroundColor = "#7973C2",
+ document.getElementById('Sol').style.backgroundColor = "#CC7739",
+ document.getElementById('Poison').style.backgroundColor = "#D851C6",
+ document.getElementById('Vol').style.backgroundColor = "#728CDA",
+ document.getElementById('Combat').style.backgroundColor = "#D44F65",
+ document.getElementById('Roche').style.backgroundColor = "#CDC067"}
+</script>
+<style>
+    button{
+        text-decoration: none;
+    }
+</style>
+  <h1>Le pokedex !</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../fr">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://pokebuildapi.fr/api/v1">Api <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="en">English</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../quiz">Qui suis-je ?</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+   <h5> Liste des types:
+   {% for type in type.listType %}
+    <a style="text-decoration: none; color: white" href="#">
+        <span id="{{type.name}}" class="badge">{{type.name}}</span>
+    </a>
+    {% endfor %}
+   </h5>
+
+    {% for eau in list.listEau %}
+
+    {{eau.name}}
+
+    {% endfor %}
+
+
+</body>
+</html>

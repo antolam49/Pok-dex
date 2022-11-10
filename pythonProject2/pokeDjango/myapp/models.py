@@ -57,8 +57,14 @@ class Pokemon_fr(models.Model):
     shiny: string
     back_shiny: string
     back: string
+    statHp: int
+    statAttack: int
+    statDefense: int
+    statAttackSpe: int
+    statDefenseSpe: int
+    statSpeed: int
 
-    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,preId, nextId, shiny, back_shiny, back):
+    def __init__(self, id, name, img, hp, attaque, defense, attaque_spe, defense_spe, speed,preId, nextId, shiny, back_shiny, back, statHp, statAttack, statDefense, statAttackSpe, statDefenseSpe, statSpeed):
         self.id = id
         self.name = name
         self.img = img
@@ -77,6 +83,12 @@ class Pokemon_fr(models.Model):
         self.shiny = shiny
         self.back_shiny = back_shiny
         self.back = back
+        self.statHp = statHp
+        self.statAttack = statAttack
+        self.statDefense = statDefense
+        self.statAttackSpe = statAttackSpe
+        self.statDefenseSpe = statDefenseSpe
+        self.statSpeed = statSpeed
 
     def addNextEvo(self, nextEvo):
         self.nextPoke.append(nextEvo)
@@ -134,10 +146,97 @@ class Ability(models.Model):
 class Type(models.Model):
     name: string
     image: string
+    listType: list
 
     def __init__(self, name, image):
         self.name = name
         self.image = image
+        self.listType = []
+
+    def addType(self, type):
+        self.listType.append(type)
+
+
+class listType(models.Model):
+    id: int
+    listFeu: list
+    listEau: list
+    listPlante: list
+    listTénèbres: list
+    listInsecte: list
+    listPsy: list
+    listAcier: list
+    listDragon: list
+    listFée: list
+    listSol: list
+    listRoche: list
+    listPoison: list
+    listÉlectrik: list
+    listGlace: list
+    listVol: list
+    listCombat: list
+    listNormal: list
+    listSpectre: list
+
+    def __init__(self, id):
+        self.id = id
+        self.listFeu = []
+        self.listEau = []
+        self.listÉlectrik = []
+        self.listNormal = []
+        self.listAcier = []
+        self.listCombat = []
+        self.listDragon = []
+        self.listFée = []
+        self.listGlace = []
+        self.listInsecte = []
+        self.listPlante = []
+        self.listPoison = []
+        self.listPsy = []
+        self.listRoche = []
+        self.listSol = []
+        self.listTénèbres = []
+        self.listVol = []
+        self.listSpectre = []
+
+    def addNormal(self, pokemon):
+        self.listNormal.append(pokemon)
+    def addFeu(self, pokemon):
+        self.listFeu.append(pokemon)
+    def addEau(self, pokemon):
+        self.listEau.append(pokemon)
+    def addPlante(self, pokemon):
+        self.listPlante.append(pokemon)
+    def addElek(self, pokemon):
+        self.listÉlectrik.append(pokemon)
+    def addGlace(self, pokemon):
+        self.listGlace.append(pokemon)
+    def addFee(self, pokemon):
+        self.listFée.append(pokemon)
+    def addDragon(self, pokemon):
+        self.listDragon.append(pokemon)
+    def addSol(self, pokemon):
+        self.listSol.append(pokemon)
+    def addRoche(self, pokemon):
+        self.listRoche.append(pokemon)
+    def addVol(self, pokemon):
+        self.listVol.append(pokemon)
+    def addPsy(self, pokemon):
+        self.listPsy.append(pokemon)
+    def addPoison(self, pokemon):
+        self.listPoison.append(pokemon)
+    def addCombat(self, pokemon):
+        self.listCombat.append(pokemon)
+    def addTenebre(self, pokemon):
+        self.listTénèbres.append(pokemon)
+    def addInsecte(self, pokemon):
+        self.listInsecte.append(pokemon)
+    def addAcier(self, pokemon):
+        self.listAcier.append(pokemon)
+    def addSpectre(self, pokemon):
+            self.listSpectre.append(pokemon)
+
+
 class Team(models.Model):
     listPokemon: list
 

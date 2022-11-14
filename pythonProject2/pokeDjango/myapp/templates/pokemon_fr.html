@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{poke_fr.name}}</title>
+    <script src="function.js" defer></script>
+
+</head>
+<body onload="myFunction()">
+<script>
+    function myFunction(){
+        document.getElementById('HP').style.width = '{{ poke_fr.statHp }}%',
+        document.getElementById('attack').style.width = '{{ poke_fr.statAttack }}%',
+        document.getElementById('defense').style.width = '{{ poke_fr.statDefense }}%',
+        document.getElementById('attack_spe').style.width = '{{ poke_fr.statAttackSpe }}%',
+        document.getElementById('defense_spe').style.width = '{{ poke_fr.statDefenseSpe }}%',
+        document.getElementById('speed').style.width = '{{ poke_fr.statSpeed }}%'}
+</script>
+
+<style>
+p{
+    margin-bottom: 0;
+}
+.container.faib{
+    margin-top: -10vh;
+}
+    button.btn.btn-secondary.a{
+        margin-right: 10vh
+    }
+    button.btn.btn-secondary.b{
+        margin-left: 10vh
+    }
+    :root {
+  --success: #00b894;
+  --progress: #e17055;
+}
+.col-3 {
+    background-color: #AB3838;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-bottom: 2vh;
+    margin-left: 8vh;
+    border-bottom: solid;
+    border-left: solid;
+    border-top: solid;
+    border-right: solid;
+    border-radius: 5px;
+}
+.progressbar-wrapper {
+  background-color: #632B2B;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+    margin-bottom: 1vh;
+}
+
+.progressbar {
+  background-color: #F3D9D9;
+  color: white;
+  padding: 10px;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.card.type{
+    margin-top: 5vh;
+    background-color: #AB3838;
+    border-bottom: solid;
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+}
+
+.container.stats{
+    background-color: #AB3838;
+    height: 58vh;
+    border-radius: 5px;
+}
+</style>
+    <h1>Le pokedex !</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../fr">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://pokebuildapi.fr/api/v1">Api <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="en">English</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../quiz">Qui suis-je ?</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+<div class="grid text-center">
+  <div class="g-col-4"></div>
+  <div class="g-col-4">
+    <h1>{{poke_fr.name}}</h1>
+    <h4>Numero de pokedex : {{poke_fr.id}}</h4>
+      {% if poke_fr.preId > 0 %}
+      <a href="../../pokemon_fr/{{poke_fr.preId}}"><button type="button" class="btn btn-secondary a"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg></button></a>
+      {% endif %}
+      <img width="300" height="300" src={{poke_fr.img}}>
+      <img width="300" height="300" src={{poke_fr.back}}>
+      <img width="300" height="300" src={{poke_fr.shiny}}>
+      <img width="300" height="300" src={{poke_fr.back_shiny}}>
+      {% if poke_fr.nextId < 899 %}
+      <a href="../../pokemon_fr/{{poke_fr.nextId}}"><button type="button" class="btn btn-secondary b"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+       </svg></button></a>
+      {% endif %}
+  </div>
+  <div class="g-col-4"></div>
+</div>
+    <div class="container" style="padding-top: 80px">
+      <div class="row py-5">
+        <h2>Types: </h2>
+      {% for type in poke_fr.types %}
+           <div class="card type" style="width: 18rem;">
+              <img class="card-img-top" src="{{type.image}}" alt="">
+              <div class="card-body">
+                <p class="card-title text-center">{{type.name}}</p>
+              </div>
+           </div>
+    {% endfor %}
+
+      </div>
+        <h2>Stats: </h2>
+      <ul>
+           <div class="container stats">
+               <br>
+               <p>HP: </p>
+               <div class="progressbar-wrapper">
+                  <div id="HP" title="" class="progressbar HP">{{poke_fr.hp}}</div>
+               </div>
+
+               <p>Attaque: </p>
+               <div class="progressbar-wrapper">
+                  <div id="attack" title="" class="progressbar attack">{{poke_fr.attaque}}</div>
+               </div>
+               <p>Defense: </p>
+                 <div class="progressbar-wrapper">
+                  <div id="defense" title="" class="progressbar defense">{{poke_fr.defense}}</div>
+               </div>
+               <p>Attaque Spe: </p>
+                 <div class="progressbar-wrapper">
+                  <div id="attack_spe" title="" class="progressbar attack_spe">{{poke_fr.attaque_spe}}</div>
+               </div>
+               <p>Defense Spe: </p>
+               <div class="progressbar-wrapper">
+                  <div id="defense_spe" title="" class="progressbar defense_spe">{{poke_fr.defense_spe}}</div>
+               </div>
+               <p>Vitesse: </p>
+               <div class="progressbar-wrapper">
+                  <div id="speed" title="" class="progressbar speed">{{poke_fr.speed}}</div>
+               </div>
+            </div>
+      </ul>
+        <h2 class="faib">Faiblesses: </h2>
+      <div class="container faib" style="padding-top: 80px">
+          <div class="row py-5">
+
+          {% for faiblesse in poke_fr.faiblesses %}
+              <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="#">
+                      {% load static %}
+                    <img class="card-img-top" src={{faiblesse.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{faiblesse.name}}</h5>
+                    <h5 class="card-title text-center">{{faiblesse.dmg_multiplier}}</h5>
+                    <h5 class="card-title text-center">{{faiblesse.dmg_relation}}</h5>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+      </div>
+        {% for prePoke in poke_fr.prePoke %}
+        <div class="container" style="padding-top: 80px">
+          <div class="row py-5">
+            <h2>Pré évolution: </h2>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{prePoke.id}}">
+                    <img class="card-img-top" src={{prePoke.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{prePoke.name}}</h5>
+                    </div>
+            </div>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{prePoke.id}}">
+                    <img class="card-img-top" src={{prePoke.shiny}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Shiny's {{prePoke.name}}</h5>
+                    </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      {% for nextPoke in poke_fr.nextPoke %}
+      <div class="container" style="padding-top: 80px">
+          <div class="row py-5">
+            <h2>Future évolution: </h2>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{nextPoke.id}}">
+                    <img class="card-img-top" src={{nextPoke.image}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{nextPoke.name}}</h5>
+                  </div>
+            </div>
+            <div class="col-3 p-4">
+                  <a class="card text-decoration-none" style="max-width: 18rem;" href="../../pokemon_fr/{{nextPoke.id}}">
+                    <img class="card-img-top" src={{nextPoke.shiny}}>
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Shiny's {{nextPoke.name}}</h5>
+                  </div>
+            </div>
+          </div>
+      </div>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

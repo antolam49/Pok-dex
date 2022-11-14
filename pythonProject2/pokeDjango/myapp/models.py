@@ -2,8 +2,13 @@ import string
 
 from django.db import models
 
+class Joueur(models.Model):
+    pokemons: list
 
-# Create your models here.
+    def __init__(self):
+        self.pokemons = []
+    def addPoke(self, pokemon):
+        self.pokemons.append(pokemon)
 class Pokemon(models.Model):
     id: int
     name: string

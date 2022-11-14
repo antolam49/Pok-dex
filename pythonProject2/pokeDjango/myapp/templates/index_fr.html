@@ -36,6 +36,9 @@
           <li class="nav-item">
               <a class="nav-link" href="../../type">Types</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../team">Team</a>
+          </li>
         </ul>
 
         <form class="form-inline my-2 my-lg-0" action="name_fr/" method="post">
@@ -64,12 +67,14 @@
           <div class="card-body">
             <h5 class="card-title text-center"><a href="pokemon_fr/{{poke_fr.id}}">{{poke_fr.name}}</a></h5>
             <h6 class="card-title text-center">Numero de pokedex: {{poke_fr.id}}</h6>
-            {% for type in poke_fr.type %}
+            <h6 class="card-title text-center">
+              <a href="setTeam/{{poke_fr.id}}">Ajouter à l'équipe</a>
+            </h6>
+            {% for type in poke_fr.types %}
               <h5 class="card-title text-center">
-                <a href="ability/{{ability.id}}">{{poke_fr.type}}</a>
+                <a href="#">{{type.name}}</a>
               </h5>
             {% endfor %}
-
           </div>
 
         </div>

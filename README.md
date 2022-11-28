@@ -1,6 +1,8 @@
 # pokedex-python/Pokedex
 
+Antoine LAMBERT
 
+pip install Django, requests
 
 ## Getting Started
 

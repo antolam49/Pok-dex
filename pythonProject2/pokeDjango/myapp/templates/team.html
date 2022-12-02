@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -7,31 +7,97 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
-    <title>Team</title>
-</head>
-<body>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+  <style>
+    .row{
+      flex-wrap: nowrap !important;
+    }
+  </style>
+    <h1>Le pokedex !</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/en">Pokedex</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://pokebuildapi.fr/api/v1">Api <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="en">English</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../quiz">Qui suis-je ?</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../type">Types</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../team">Equipe</a>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" action="name_fr/" method="post">
+          {{ form }}
+          {% csrf_token %}
+          <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+          <input type="submit" value="OK">
+        </form>
+
+
+      </div>
+    </nav>
     {% if not listPoke %}
     <p>pas de pokemon dans la team</p>
     {% else %}
-        {{listPoke}}
+    <h1>Voici votre équipe !</h1>
+    <div class="container" style="padding-top: 80px">
+      <div class="row">
         {% for poke in listPoke %}
-        <div class="col-3 p-4">
-          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon/{{poke.id}}">
-            <img class="card-img-top" src={{poke.img}}>
+        <div>
+          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{poke.id}}">
+              <img class="card-img-top" src={{poke.img}}>
           </a>
-          <div class="card-body">
-            <h5 class="card-title text-center"><a href="pokemon/{{poke.id}}">{{poke.name}}</a></h5>
-            <h5 class="card-title text-center">Numero de pokedex: {{poke.id}}</h5>
-            {% for ability in poke.abilities %}
-              <h5 class="card-title text-center">
-                <a href="ability/{{ability.id}}">{{ability.name}}</a>
-              </h5>
-            {% endfor %}
-            <a href="">Supprimer</a>
-          </div>
 
+          <div class="card-body">
+            <h5 class="card-title text-center"><a href="pokemon_fr/{{poke.id}}">{{poke.name}}</a></h5>
+            <h6 class="card-title text-center">Numero de pokedex: {{poke.id}}</h6>
+          </div>
         </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <h1>Voici l'équipe adverse !</h1>
+    <div class="container" style="padding-top: 80px">
+      <div class="row">
+        {% for pokeAdv in listPokeAdv %}
+        <div>
+          <a class="card text-decoration-none" style="max-width: 18rem;" href="pokemon_fr/{{pokeAdv.id}}">
+              <img class="card-img-top" src={{pokeAdv.img}}>
+          </a>
+
+          <div class="card-body">
+            <h5 class="card-title text-center"><a href="pokemon_fr/{{pokeAdv.id}}">{{pokeAdv.name}}</a></h5>
+            <h6 class="card-title text-center">Numero de pokedex: {{pokeAdv.id}}</h6>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     {% endif %}
 
 </body>

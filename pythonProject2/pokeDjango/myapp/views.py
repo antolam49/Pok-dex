@@ -14,23 +14,35 @@ from .models import Pokemon
 pokemonTeam = []
 allPokemon = []
 
-
 def team(request):
-    for x in range(0, len(pokemonTeam)):
-        listPoke = []
-        infoPoke = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(pokemonTeam[x]) + '/').json()
+    context = {}
+    listPoke = []
+    listPokeAdv = []
+    size = [0,0,0,0,0,0]
+    for x in range(0, len(size)):
+        j = random.randint(1, 1000)
+        infoPoke = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(j) + '/').json()
+        #infoPokeFr = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(j) + '/').json()
+        i = random.randint(1, 1000)
+        infoPokeAdv = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(i) + '/').json()
+        #infoPokeFrAdv = requests.get('https://pokebuildapi.fr/api/v1/pokemon/' + str(i) + '/').json()
         poke = models.Pokemon(infoPoke['id'], infoPoke['name'], infoPoke['sprites']['front_shiny'])
+        pokeAdv = models.Pokemon(infoPokeAdv['id'], infoPokeAdv['name'], infoPokeAdv['sprites']['front_shiny'])
         for y in range(0, len(infoPoke['abilities'])):
             poke.addAbility(
                 models.Ability(getAbilityId(infoPoke['abilities'][y]['ability']['url']),
-                               infoPoke['abilities'][y]['ability']['name'])
-            )
+                               infoPoke['abilities'][y]['ability']['name']))
+        for z in range(0, len(infoPokeAdv['abilities'])):
+            pokeAdv.addAbility(
+                models.Ability(getAbilityId(infoPokeAdv['abilities'][z]['ability']['url']),
+                               infoPokeAdv['abilities'][z]['ability']['name']))
         listPoke.append(poke)
+        listPokeAdv.append(pokeAdv)
         context = {
-            'listPoke': listPoke
+            'listPoke': listPoke,
+            'listPokeAdv': listPokeAdv
         }
     return render(request, 'team.html', context)
-
 
 def pokemon(request, id: int):
     infoPoke = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(id) + '/').json()
@@ -95,23 +107,11 @@ def pokemon_fr(request, id: int):
     return render(request, 'pokemon_fr.html', context)
 
 
-
-def setListPokemon (request, b: bool):
-    if(b == 1):
-        setList_fr()
-    else:
-        setList()
-
-
-
-
-
 def name(request):
     return index(request)
 
 def name_fr(request):
     return index_fr(request)
-
 
 def index(request):
     if request.method == 'POST':
@@ -126,8 +126,11 @@ def index(request):
         if not allPokemon:
             listPoke = setList()
             allPokemon = listPoke
+            print("Not all Poke en")
         else:
             listPoke = allPokemon
+            print("All Poke EN")
+
 
         form = SearchForm()
         context = {'listPoke': listPoke,
@@ -147,8 +150,10 @@ def index_fr(request):
         if not allPokemon:
             listPoke_fr = setList_fr()
             allPokemon = listPoke_fr
+            print("Not all Poke fr")
         else:
             listPoke_fr = allPokemon
+            print("All Poke fr")
 
         form = SearchForm()
         context = {'listPoke_fr': listPoke_fr,
@@ -242,10 +247,6 @@ def type(request):
                     models.Pokemon(infoPoke[y]['id'], infoPoke[y]['name'], infoPoke[y]['image'])
                 )
 
-
-
-
-
     for x in range(0, len(infoType)):
         type.addType(
             models.Type(infoType[x]['name'], infoType[x]['image'])
@@ -256,7 +257,7 @@ def type(request):
     return render(request, 'type.html', context)
 def setList():
     finalList = []
-    ListPokemon = requests.get('https://pokeapi.co/api/v2/pokemon?limit=898').json()['results']
+    ListPokemon = requests.get('https://pokeapi.co/api/v2/pokemon?limit=151').json()['results']
 
     for x in range(0, len(ListPokemon)):
         pokemonInfo = requests.get(ListPokemon[x]["url"]).json()
